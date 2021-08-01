@@ -1,0 +1,29 @@
+<div class="row headerParent">
+    
+        <h2>Menu</h2>
+    
+    <div class="row">
+        <div class="element" *ngFor="let elem of dataHeader">
+            <div *ngIf="elem.children.length !== 0; else noChildren">
+                <a mat-raised-button href="{{elem.link}}" style="border-top-right-radius:0;
+                border-bottom-right-radius:0;" >{{elem.name}}</a>
+                <mat-icon class="dropDownIcon" [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+                
+                <mat-menu #menu="matMenu" >
+                    <ng-container *ngFor="let child of elem.children">
+                        <a mat-menu-item href="{{child.link}}">{{child.name}}</a>
+                    </ng-container>
+                </mat-menu>
+            </div>
+            <ng-template #noChildren>
+                <div>
+                    <a mat-raised-button href="{{elem.link}}">{{elem.name}}</a>
+                </div>
+                
+            </ng-template>
+        
+        </div>
+    </div>
+
+</div>
+

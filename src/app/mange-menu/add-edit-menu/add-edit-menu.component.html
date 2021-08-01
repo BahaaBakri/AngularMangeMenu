@@ -1,0 +1,83 @@
+<h2 mat-dialog-title style="text-align: center;"><span *ngIf="data.status == 'add'">Add</span> <span *ngIf="data.status == 'edit'">Edit</span> Item</h2>
+<mat-dialog-content class="mat-typography" style="width: 40vw;">
+  <form [formGroup]="addmenu">
+    <div style="display: flex; justify-content: space-between;">
+        <mat-form-field appearance="outline" fxFlex="100" style="width: 49%;" >
+            <mat-label >Item Name </mat-label>
+            <input matInput  formControlName="name">
+            <mat-icon matSuffix class="secondary-text">text_format</mat-icon>
+            <mat-error>  Item name is requierd</mat-error>
+        </mat-form-field>
+            
+        <mat-form-field appearance="outline" fxFlex="100" style="width: 49%;">
+            <mat-label >Item Link </mat-label>
+            <input matInput  formControlName="link">
+            <mat-icon matSuffix class="secondary-text">link</mat-icon>
+            <mat-error>  item link is required as a valid URL</mat-error>
+        </mat-form-field>
+    </div>
+    <div formArrayName="children">
+        <h4 >Sub Items:</h4>
+        <fieldset class="myfieldset">
+            <legend>
+                
+                    <mat-icon style="color: #00b894; cursor: pointer;"  (click)=addItems()>add</mat-icon>
+                    <mat-icon style="color: #ff7675; cursor: pointer;" (click)=resetItems()>delete</mat-icon>
+            </legend>
+            <div class="elements">
+                <div *ngFor="let item of getItems().controls; let i = index">
+                    <div [formGroupName]="i">
+    
+                        <div style="display: flex; justify-content: space-between;">
+                            <mat-form-field appearance="outline" fxFlex="100" style="width: 45%;" >
+                                <mat-label class="h2 label">Item Name </mat-label>
+                                <input matInput  formControlName="name">
+                                <mat-icon matSuffix class="secondary-text">text_format</mat-icon>
+                                <mat-error>  Item name is requierd</mat-error>
+                            </mat-form-field>
+                                
+                            <mat-form-field appearance="outline" fxFlex="100" style="width: 45%;">
+                                <mat-label class="h2 label">Item Link </mat-label>
+                                <input matInput  formControlName="link">
+                                <mat-icon matSuffix class="secondary-text">link</mat-icon>
+                                <mat-error>  item link is required as a valid URL</mat-error>
+                            </mat-form-field>
+                            <mat-icon style="background-color: #fff; color:#ff7675; cursor: pointer; line-height: 2.5;" matSuffix  (click)='deleteItem(i)'>delete</mat-icon>
+
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+    <div class="dialogAction">
+        <button mat-raised-button type="button"
+            color="primary"
+            *ngIf="data.status == 'edit'"
+            (click)="onSubmit()"
+            [disabled]="addmenu.invalid"
+            [mat-dialog-close]="addmenu.value">
+            Edit
+        
+        </button>
+        <button mat-raised-button type="button"
+            color="primary"
+            *ngIf="data.status == 'add'"
+            (click)="onSubmit()"
+            [disabled]="addmenu.invalid"
+            [mat-dialog-close]="addmenu.value">
+            Add
+        
+        </button>
+        <button mat-raised-button color="secondary" 
+            type="button" 
+            (click)="onCloseDialog()">
+            Close
+        </button>
+    </div>
+  </form>
+</mat-dialog-content>
+
+

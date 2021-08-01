@@ -1,0 +1,16 @@
+.dialogAction {
+    width: fit-content;
+    margin-left: auto;
+    margin-top: 10px;
+}
+.myfieldset{
+    height: 100%;
+    overflow: auto;
+    background-color: #3a4d5e0a;
+    border: 1px solid #CCC
+}
+.elements {
+    max-height: 200px;
+    overflow: auto;
+    
+}

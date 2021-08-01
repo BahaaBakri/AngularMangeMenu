@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+    <p *ngIf="data.status == 'one'">Are you really sure want to delete this item?</p>
+    <p *ngIf="data.status == 'all'">Are you really sure want to delete all items?</p>
+</div>
+<div mat-dialog-actions class="dialogAction">
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+    <button mat-raised-button color="secondary" (click)="onClose()">Close</button>
+
+</div>

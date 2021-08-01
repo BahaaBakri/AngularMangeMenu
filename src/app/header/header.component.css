@@ -1,0 +1,31 @@
+.row {
+    display: flex;
+    
+}
+.headerParent {
+    justify-content: space-around;
+    background-color:#55718a;
+}
+.headerParent > div {
+    width: 70%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.headerParent .element {
+    line-height: 3.5;
+}
+.headerParent > h2 {
+    width: 30%;
+    text-align: center;
+    color:#EEE
+}
+.dropDownIcon {
+    background: white;
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid #EEE;
+    height: 36px;
+    line-height: 1.5;
+    position: absolute;
+    top: 11px;
+    cursor: pointer;
+}

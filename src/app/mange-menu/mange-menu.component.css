@@ -1,0 +1,35 @@
+.mainTable {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+ ::ng-deep .mat-table thead {
+    
+        background-color: aliceblue
+  
+  }
+  ::ng-deep .secondTable {
+    width: 100%;
+  }
+  ::ng-deep .secondTable td, .secondTable th {
+    padding: 10px!important;
+  }
+  th.mat-header-cell, td.mat-cell {
+    text-align: center!important;
+  }
+  .deleteIcon:hover{
+    color: #f64936;
+    cursor: pointer;
+  }
+  .editIcon:hover {
+    color:#3f51bc;
+    cursor: pointer;
+  }
+ 
+  
